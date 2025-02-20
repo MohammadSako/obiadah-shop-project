@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@public/*": ["./public/*"],
+      "@components/*": ["./src/components/*"]
+    },
+    "target": "ES2017"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/categories/[[...slug]]/page.js",
+    "src/app/categories/women/page.js",
+    "src/app/categories/mixed/page.js",
+    "src/app/categories/men/page.js",
+    "src/app/api/products.js",
+    "src/lib/supabase.js",
+    "src/app/[locale]/page.tsx",
+    "src/lib/db/products.js",
+    "src/middleware.js",
+    "src/lib/store.ts",
+    "src/components/checkout/order-summary.tsx",
+    "src/components/homescreen/best-sellers.js",
+    "src/components/helpers/product.js",
+    "src/components/helpers/favorite.js",
+    "src/components/homescreen/new-arrivals.tsx",
+    "src/components/UI/carouselFade.js",
+    "src/components/helpers/navbar helpers/navigation-menu.js",
+    "src/components/helpers/navbar helpers/nav-link.tsx"
+, "src/lib/db/cloudinary.ts", "src/app/[locale]/dashboard/components/data-table.tsx", "src/components/productDetail/productDetailPage.js", "src/app/[locale]/search/page.js", "src/components/dashboard/images-list.js", "src/components/product-details/components/similar-items.js", "src/components/UI/login-form.tsx", "src/components/UI/google.ts", "src/app/f/[name]/layout.js", "src/lib/supabaseServer.js", "src/lib/categoriesData.js", "src/components/homescreen/yourFavoriteItems.js", "src/app/[locale]/checkout/page.js", "src/app/[locale]/dashboard/customer-orders/page.js", "src/components/layouts/search-card.js", "src/app/[locale]/about/page.js", "src/app/api/sendOrderEmail/sendOrderEmail.js"  ],
+  "exclude": ["node_modules"]
+}

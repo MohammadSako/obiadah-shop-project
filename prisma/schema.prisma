@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          Int           @id @default(autoincrement())
+  title       String        @db.Text
+  image       String?       @db.Text
+  url         String        @db.Text
+  SubCategory SubCategory[] // One-to-many relation with SubCategory
+}
+
+model SubCategory {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.Text
+  image       String?  @db.Text
+  url         String   @db.Text
+  category_id Int      @default(autoincrement())
+  category    Category @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  items       Item[] // One-to-many relation with Item
+}
+
+model Item {
+  id              Int          @id @default(autoincrement())
+  title           String       @db.Text
+  image           String?      @db.Text
+  url             String       @db.Text
+  itemid          String       @db.Text
+  sub_category_id Int          @default(autoincrement())
+  sub_category    SubCategory  @relation(fields: [sub_category_id], references: [id], onDelete: Cascade)
+  item_detail     ItemDetail[] // One-to-many relation with ItemDetail
+}
+
+model ItemDetail {
+  id            String   @id @default(uuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  title         String   @db.Text
+  titleAr       String   @db.Text
+  color         String   @db.Text
+  colorAr       String   @db.Text
+  size          String   @db.Text
+  price         Int      @db.Integer
+  qty           Int      @db.Integer
+  image         String   @db.Text
+  alt           String   @db.Text
+  gender        String   @db.Text
+  type          String   @db.Text
+  description   String   @db.Text
+  descriptionAr String   @db.Text
+  details       String   @db.Text
+  detailsAr     String   @db.Text
+  dashboardType String   @db.Text
+  imageid       String   @db.Text
+  category      Int
+  item          Item     @relation(fields: [category], references: [id], onDelete: Cascade)
+}
+
+model CarouselImages {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  title         String   @db.Text
+  titleAr       String   @db.Text
+  description   String   @db.Text
+  descriptionAr String   @db.Text
+  image         String   @db.Text
+  alt           String   @db.Text
+  imageid       String   @db.Text
+}
+
+model BrandsImages {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  title         String   @db.Text
+  titleAr       String   @db.Text
+  image         String   @db.Text
+  alt           String   @db.Text
+  imageid       String   @db.Text
+  description   String   @db.Text
+  descriptionAr String   @db.Text
+}
+
+model Advertisements {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  title         String   @db.Text
+  titleAr       String   @db.Text
+  image         String   @db.Text
+  alt           String   @db.Text
+  imageid       String   @db.Text
+  description   String   @db.Text
+  descriptionAr String   @db.Text
+}
+
+model CustomersOrders {
+  id          Int             @id @default(autoincrement())
+  createdAt   DateTime        @default(now())
+  firstname   String          @db.Text
+  lastname    String          @db.Text
+  phonenumber String          @db.Text
+  firstline   String          @db.Text
+  secondline  String          @db.Text
+  email       String          @db.Text
+  city        String          @db.Text
+  additional  String          @db.Text
+  totalall    Int             @db.Integer
+  delivered   Boolean         @default(false)
+  items       CustomersItem[]
+}
+
+model CustomersItem {
+  id                String           @id @default(uuid())
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  title             String           @db.Text
+  titleAr           String           @db.Text
+  color             String           @db.Text
+  colorAr           String           @db.Text
+  size              String           @db.Text
+  price             Int              @db.Integer
+  image             String           @db.Text
+  alt               String           @db.Text
+  gender            String           @db.Text
+  type              String           @db.Text
+  description       String           @db.Text
+  descriptionAr     String           @db.Text
+  details           String           @db.Text
+  detailsAr         String           @db.Text
+  dashboardType     String           @db.Text
+  imageid           String           @db.Text
+  originalItemId    String           @db.Text
+  category          Int              @db.Integer
+  quantity          Int              @db.Integer
+  totalPrice        Int              @db.Integer
+  customersOrdersId Int?
+  customersOrders   CustomersOrders? @relation(fields: [customersOrdersId], references: [id], onDelete: Cascade)
+}
+
+//to add data without losing and data (chatgpt)
+// npx prisma generate
+// npx prisma migrate dev --name add_product_table => you new table name here
+// npx prisma migrate deploy
+
+//ex: npx prisma migrate dev --name customersItem
+
+// to create a database in supabase
+// npx prisma migrate dev --name init
+
+// to seed...
+// npx prisma db seed
+
+//Node.js
+// to clear node cache, to update new data.
+// npm cache clean --force
+
+// prisma data sheet map
+// https://www.prisma.io/docs/orm/prisma-schema/data-model/models
+
+// https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/using-prisma-migrate-node-postgresql
+
+// schema docu
+// https://www.prisma.io/docs/orm/reference/prisma-schema-reference
