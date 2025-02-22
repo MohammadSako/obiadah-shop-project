@@ -165,7 +165,7 @@ function ProductCard({
               alt={alt}
               width={200}
               height={200}
-              className="w-[200px] h-[200px] object-contain"
+              className="w-[200px] h-[200px] object-contain rounded-xl"
             />
           </div>
           <div className="mt-4 flex justify-between">
