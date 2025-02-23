@@ -48,10 +48,12 @@ export default function CategoriesPage({ data }) {
       
       const parts = pathname.split("/");
       const lastPart = parts[parts.length - 1];
+
+      
       if (lastPart) {
         try {
           const { productByItemId } = await getProductByItemId(lastPart);
-          setProducts(productByItemId?.[0]?.item_detail || []);
+          setProducts(productByItemId || []);
         } catch (error) {
           console.error("Error fetching products:", error);
         } finally {

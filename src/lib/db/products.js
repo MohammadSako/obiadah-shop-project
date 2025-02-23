@@ -14,14 +14,11 @@ export const getProducts = cache(async function () {
   }
 });
 
-export async function getProductByItemId(itemId) {
+export async function getProductByItemId(category) {
   try {
-    const productByItemId = await prisma.item.findMany({
+    const productByItemId = await prisma.itemDetail.findMany({
       where: {
-        itemid: itemId,
-      },
-      include: {
-        item_detail: true,
+        category: category,
       },
     });
     return { productByItemId };
@@ -29,6 +26,21 @@ export async function getProductByItemId(itemId) {
     return { error: error.message || error }; // Handle errors
   }
 }
+// export async function getProductByItemId(itemId) {
+//   try {
+//     const productByItemId = await prisma.item.findMany({
+//       where: {
+//         itemid: itemId,
+//       },
+//       include: {
+//         item_detail: true,
+//       },
+//     });
+//     return { productByItemId };
+//   } catch (error) {
+//     return { error: error.message || error }; // Handle errors
+//   }
+// }
 
 // Get Product name by Searching
 export async function searchInProducts(value) {
@@ -229,7 +241,7 @@ export async function addProduct(productData) {
         alt: productData.alt,
         gender: productData.gender,
         type: productData.type,
-        category: parseInt(productData.category),
+        category: productData.category,
         description: productData.description,
         descriptionAr: productData.descriptionAr,
         details: productData.details,
@@ -289,7 +301,7 @@ export async function updateProductById(id, productData) {
         descriptionAr: productData.descriptionAr,
         details: productData.details,
         detailsAr: productData.detailsAr,
-        category: parseInt(productData.category),
+        category: productData.category,
         dashboardType: productData.dashboardtype,
         qty: parseInt(productData.qty),
       },
@@ -558,7 +570,6 @@ export async function decrementCustomerData(orderData) {
 }
 
 export async function incrementCustomerData(orderData) {
-  
   try {
     const incrementQtyPromises = orderData.items.map((item) =>
       prisma.itemDetail.update({

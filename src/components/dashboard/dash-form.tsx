@@ -386,7 +386,8 @@ export function DashForm({ onAddProduct }: AddFormProps) {
               )}
 
               {/* size */}
-              {productCategory === "9" || productCategory === "10" ? (
+              {productCategory === "mwatches" ||
+              productCategory === "wwatches" ? (
                 <div className="sm:col-span-6 md:col-span-3">
                   <FormField
                     control={form.control}
@@ -412,7 +413,7 @@ export function DashForm({ onAddProduct }: AddFormProps) {
                     )}
                   />
                 </div>
-              ) : productCategory === "11" || productCategory === "12" ? (
+              ) : productCategory === "mbag" || productCategory === "wbag" ? (
                 <div className="sm:col-span-6 md:col-span-3">
                   <FormField
                     control={form.control}
@@ -425,10 +426,10 @@ export function DashForm({ onAddProduct }: AddFormProps) {
                     )}
                   />
                 </div>
-              ) : productCategory === "13" ||
-                productCategory === "14" ||
-                productCategory === "15" ||
-                productCategory === "16" ? (
+              ) : productCategory === "mjeans" ||
+                productCategory === "mpants" ||
+                productCategory === "wjeans" ||
+                productCategory === "wpants" ? (
                 <div className="sm:col-span-6 md:col-span-3">
                   <FormField
                     control={form.control}
@@ -505,7 +506,7 @@ export function DashForm({ onAddProduct }: AddFormProps) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-lg text-right flex" dir="rtl">
-                        الاسم
+                        اسم المنتج
                       </FormLabel>
                       <FormControl>
                         <Input

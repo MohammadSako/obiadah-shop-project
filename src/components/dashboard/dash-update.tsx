@@ -30,6 +30,7 @@ import {
   WomenLowerClothes,
   WomenShoes,
   WomenTopClothes,
+  BagTypes,
 } from "./products-size";
 import { supabase } from "@/lib/supabase";
 import { v4 as uuidv4 } from "uuid";
@@ -140,7 +141,7 @@ export function UpdateForm({ editData, onUpdateProduct }: AddFormProps) {
       size: editData.size || "",
       gender: editData.gender || "",
       type: editData.type || "",
-      category: String(editData.category) || "",
+      category: editData.category || "",
       description: editData.description || "",
       descriptionAr: editData.descriptionAr || "",
       details: editData.details || "",
@@ -439,10 +440,23 @@ export function UpdateForm({ editData, onUpdateProduct }: AddFormProps) {
                     )}
                   />
                 </div>
-              ) : productCategory === "13" ||
-                productCategory === "14" ||
-                productCategory === "15" ||
-                productCategory === "16" ? (
+              ) : productCategory === "mbag" || productCategory === "wbag" ? (
+                <div className="sm:col-span-6 md:col-span-3">
+                  <FormField
+                    control={form.control}
+                    name="size"
+                    render={({ field }) => (
+                      <BagTypes
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    )}
+                  />
+                </div>
+              ) : productCategory === "mpants" ||
+                productCategory === "wpants" ||
+                productCategory === "mjeans" ||
+                productCategory === "wjeans" ? (
                 <div className="sm:col-span-6 md:col-span-3">
                   <FormField
                     control={form.control}
@@ -509,9 +523,15 @@ export function UpdateForm({ editData, onUpdateProduct }: AddFormProps) {
                   name="titleAr"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name Ar</FormLabel>
+                      <FormLabel className="text-lg text-right flex" dir="rtl">
+                        اسم المنتج
+                      </FormLabel>
                       <FormControl>
-                        <Input placeholder="Product name Ar" {...field} />
+                        <Input
+                          dir="rtl"
+                          placeholder="اسم المنتج باللغة العربية"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -539,9 +559,15 @@ export function UpdateForm({ editData, onUpdateProduct }: AddFormProps) {
                   name="colorAr"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Color Ar</FormLabel>
+                      <FormLabel className="text-lg text-right flex" dir="rtl">
+                        اللون
+                      </FormLabel>
                       <FormControl>
-                        <Input placeholder="Product color Ar" {...field} />
+                        <Input
+                          dir="rtl"
+                          placeholder="لون المنتج باللغة العربية"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -570,10 +596,13 @@ export function UpdateForm({ editData, onUpdateProduct }: AddFormProps) {
                   name="descriptionAr"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Description Ar</FormLabel>
+                      <FormLabel className="text-lg text-right flex" dir="rtl">
+                        الوصف
+                      </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Product description Ar"
+                          dir="rtl"
+                          placeholder="وصف المنتج باللغة العربية"
                           {...field}
                         />
                       </FormControl>
@@ -607,10 +636,13 @@ export function UpdateForm({ editData, onUpdateProduct }: AddFormProps) {
                   name="detailsAr"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Details</FormLabel>
+                      <FormLabel className="text-lg text-right flex" dir="rtl">
+                        التفاصيل
+                      </FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Product details Ar"
+                          dir="rtl"
+                          placeholder="تفاصيل المنتج باللغة العربية"
                           className="resize-none"
                           {...field}
                         />

@@ -20,71 +20,71 @@ function OrderDetails({ data }) {
 
   const getCategoryLabel = (category) => {
     switch (category) {
-      case 1:
+      case "mtshirt":
         return "men T-Shirts";
-      case 2:
+      case "wtshirt":
         return "Women T-Shirts";
-      case 3:
+      case "mshirt":
         return "Men Shirts";
-      case 4:
+      case "wshirt":
         return "Women Shirts";
-      case 5:
+      case "mblouse":
         return "Men Wool blouses";
-      case 6:
+      case "wblouse":
         return "Women Wool blouses";
-      case 7:
+      case "mhats":
         return "Men Hats";
-      case 8:
+      case "whats":
         return "Women Hats";
-      case 9:
+      case "mwatches":
         return "Men Watches";
-      case 10:
+      case "wwatches":
         return "Women Watches";
-      case 11:
+      case "mbag":
         return "Men Bags";
-      case 12:
+      case "wbag":
         return "Women Bags";
-      case 13:
+      case "mjeans":
         return "Men Jeans";
-      case 14:
+      case "wjeans":
         return "Women Jeans";
-      case 15:
+      case "mpants":
         return "Men Pants";
-      case 16:
+      case "wpants":
         return "Women Pants";
-      case 17:
+      case "msocks":
         return "Men Socks";
-      case 18:
+      case "wsocks":
         return "Women Socks";
-      case 19:
+      case "mbelts":
         return "Men Belts";
-      case 20:
+      case "wbelts":
         return "Women Belts";
-      case 21:
+      case "mwork":
         return "Men Work & Safty Shoes";
-      case 22:
+      case "mloafers":
         return "Men Loafers & Slip-Ons";
-      case 23:
+      case "wloafers":
         return "Women Loafers & Slip-Ons";
-      case 24:
+      case "msnow":
         return "Men Snow Boots";
-      case 25:
+      case "wsnow":
         return "Women Snow Boots";
-      case 26:
+      case "mcasual":
         return "Men Casual Shoes";
-      case 27:
+      case "mboots":
         return "Men Boots";
-      case 28:
+      case "msandals":
         return "Men Sandals";
-      case 29:
+      case "mothers":
         return "Men Others";
-      case 30:
+      case "wothers":
         return "Women Others";
-      case 31:
+      case "wflats":
         return "Women Flats";
-      case 32:
+      case "wslippers":
         return "Women Slippers";
-      case 33:
+      case "wsneakers":
         return "Women Sneakers";
       default:
         return String(category); // Fallback if the category doesn't match

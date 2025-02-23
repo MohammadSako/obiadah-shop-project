@@ -57,7 +57,7 @@ model ItemDetail {
   detailsAr     String   @db.Text
   dashboardType String   @db.Text
   imageid       String   @db.Text
-  category      Int      @db.Integer
+  category      String   @db.Text
   // item          Item     @relation(fields: [category], references: [id], onDelete: Cascade)
 }
 
@@ -134,7 +134,7 @@ model CustomersItem {
   dashboardType     String           @db.Text
   imageid           String           @db.Text
   originalItemId    String           @db.Text
-  category          Int              @db.Integer
+  category          String           @db.Text
   quantity          Int              @db.Integer
   totalPrice        Int              @db.Integer
   customersOrdersId Int?
@@ -147,6 +147,7 @@ model CustomersItem {
 // npx prisma migrate deploy
 
 //ex: npx prisma migrate dev --name customersItem
+//ex: npx prisma migrate dev --name itemDetail
 
 // to create a database in supabase
 // npx prisma migrate dev --name init

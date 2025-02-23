@@ -177,107 +177,108 @@ export function DataTable({ data }: DataTableProps) {
           </Button>
         );
       },
+
       cell: ({ row }) => {
         const category = row.getValue("category");
         let categoryLabel: string;
         switch (category) {
-          case 1:
+          case "mtshirt":
             categoryLabel = t("categories.tshirts");
             break;
-          case 2:
+          case "wtshirt":
             categoryLabel = t("categories.tshirts");
             break;
-          case 3:
+          case "mshirt":
             categoryLabel = t("categories.shirts");
             break;
-          case 4:
+          case "wshirt":
             categoryLabel = t("categories.shirts");
             break;
-          case 5:
+          case "mblouse":
             categoryLabel = t("categories.woolblouses");
             break;
-          case 6:
+          case "wblouse":
             categoryLabel = t("categories.woolblouses");
             break;
-          case 7:
+          case "mhats":
             categoryLabel = t("categories.hats");
             break;
-          case 8:
+          case "whats":
             categoryLabel = t("categories.hats");
             break;
-          case 9:
+          case "mwatches":
             categoryLabel = t("categories.watches");
             break;
-          case 10:
+          case "wwatches":
             categoryLabel = t("categories.watches");
             break;
-          case 11:
+          case "mbag":
             categoryLabel = t("categories.bags");
             break;
-          case 12:
+          case "wbag":
             categoryLabel = t("categories.bags");
             break;
-          case 13:
+          case "mjeans":
             categoryLabel = t("categories.jeans");
             break;
-          case 14:
+          case "wjeans":
             categoryLabel = t("categories.jeans");
             break;
-          case 15:
+          case "mpants":
             categoryLabel = t("categories.pants");
             break;
-          case 16:
+          case "wpants":
             categoryLabel = t("categories.pants");
             break;
-          case 17:
+          case "msocks":
             categoryLabel = t("categories.socks");
             break;
-          case 18:
+          case "wsocks":
             categoryLabel = t("categories.socks");
             break;
-          case 19:
+          case "mbelts":
             categoryLabel = t("categories.belts");
             break;
-          case 20:
+          case "wbelts":
             categoryLabel = t("categories.belts");
             break;
-          case 21:
+          case "mwork":
             categoryLabel = t("categories.safty");
             break;
-          case 22:
+          case "mloafers":
             categoryLabel = t("categories.loafers");
             break;
-          case 23:
+          case "wloafers":
             categoryLabel = t("categories.loafers");
             break;
-          case 24:
+          case "msnow":
             categoryLabel = t("categories.snow");
             break;
-          case 25:
+          case "wsnow":
             categoryLabel = t("categories.snow");
             break;
-          case 26:
+          case "mcasual":
             categoryLabel = t("categories.casual");
             break;
-          case 27:
+          case "mboots":
             categoryLabel = t("categories.boots");
             break;
-          case 28:
+          case "msandals":
             categoryLabel = t("categories.sandals");
             break;
-          case 29:
+          case "mothers":
             categoryLabel = t("categories.others");
             break;
-          case 30:
+          case "wothers":
             categoryLabel = t("categories.others");
             break;
-          case 31:
+          case "wflats":
             categoryLabel = t("categories.flats");
             break;
-          case 32:
+          case "wslippers":
             categoryLabel = t("categories.slippers");
             break;
-          case 33:
+          case "wsneakers":
             categoryLabel = t("categories.sneakers");
             break;
           default:
