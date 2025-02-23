@@ -115,9 +115,11 @@ export function DataTable({ data }: DataTableProps) {
       },
       cell: ({ row }) => (
         <div className="capitalize font-bold truncate max-w-32 text-gray-700">
-          {row.getValue("delivered")
-            ? t("common.form.isDelivered")
-            : t("common.form.notDelivered")}
+          {row.getValue("delivered") ? (
+            <span className="bg-yellow-300 text-blue-600 px-2 rounded-md">{t("common.form.isDelivered")}</span>
+          ) : (
+            <span className="bg-red-500 text-white px-2 rounded-md">{t("common.form.notDelivered")}</span>
+          )}
         </div>
       ),
     },
