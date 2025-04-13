@@ -43,10 +43,10 @@ function RelatedCard({
             <div className="flex flex-col gap-1 items-end">
               <div className=" max-h-8 px-1 flex items-center font-bold text-gray-900">
                 <div className="relative">
-                  <span className="text-xs mt-1 -left-5 absolute">
+                  <span className="text-lg mt-1">
                     {t("product.price")}
                   </span>
-                  <span className="text-lg">{price}</span>
+                  {" "}<span className="text-xl">{price}</span>
                 </div>
               </div>
             </div>

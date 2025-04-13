@@ -180,19 +180,19 @@ function ProductCard({
             {dashboardType === "discounted" ? (
               <div className="bg-yellow-300 max-h-8 p-2 shadow-lg font-bold text-gray-900 flex items-center rounded-md">
                 <p className="relative">
-                  <span className="text-xs mt-1 -left-5 absolute">
+                  <span className="text-lg mt-1">
                     {t("product.price")}
                   </span>
-                  <span className="text-2xl">{price}</span>
+                  {" "}<span className="text-2xl">{price}</span>
                 </p>
               </div>
             ) : (
               <div className="bg-white max-h-8 p-2 flex items-center font-bold text-gray-900">
                 <p className="relative">
-                  <span className="text-xs mt-1 -left-5 absolute">
+                  <span className="text-lg mt-1">
                     {t("product.price")}
                   </span>
-                  <span className="text-2xl">{price}</span>
+                  {" "}<span className="text-2xl">{price}</span>
                 </p>
               </div>
             )}
