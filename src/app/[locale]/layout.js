@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "../globals.css";
 import NavBar from "../../components/layouts/navbar";
 import Footer from "../../components/layouts/footer";
@@ -9,20 +8,14 @@ import { Toaster } from "@/components/UI/toaster";
 import { montserrat, angelo, playfair, tajawal } from "./fonts";
 import Providers from "./providers";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Obaidah Shop",
   description:
     "Browse & discover many of products. we ship to you. Shop top brands in clothing and more.",
 };
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
-  const { locale } = await Promise.resolve(params);
+export default async function RootLayout({ children, params }) {
+  const { locale } = await params;
 
   return (
     <html

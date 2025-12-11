@@ -78,7 +78,7 @@
     "src/app/[locale]/about/page.js",
     "src/app/api/sendOrderEmail/sendOrderEmail.js",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/app/[locale]/layout.js"  ],
   "exclude": [
     "node_modules"
   ]
