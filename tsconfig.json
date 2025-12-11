@@ -41,7 +41,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
     "src/app/categories/[[...slug]]/page.js",
     "src/app/categories/women/page.js",
     "src/app/categories/mixed/page.js",
