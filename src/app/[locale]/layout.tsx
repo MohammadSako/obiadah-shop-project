@@ -49,7 +49,7 @@
 //   );
 // }
 
-import type { Metadata, LayoutProps } from "next";
+import type { Metadata } from "next";
 import "../globals.css";
 import NavBar from "../../components/layouts/navbar";
 import Footer from "../../components/layouts/footer";
@@ -69,7 +69,10 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   params,
-}: LayoutProps<"/[locale]">) {
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
   const { locale } = await params; // Typed routes require this
 
   return (
