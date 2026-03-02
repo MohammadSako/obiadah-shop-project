@@ -13,7 +13,6 @@ export const LocaleSwitcher = (props: Props) => {
   const { className } = props;
   const changeLocale = useChangeLocale();
   const locale = useCurrentLocale();
-  // const t = useI18n();
 
   return (
     <NavLink

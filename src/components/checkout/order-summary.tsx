@@ -2,7 +2,6 @@
 
 import { useItemStore } from "@/lib/store";
 import { useCurrentLocale, useI18n } from "@/locales/client";
-// import { Button } from "../UI/button";
 import Image from "next/image";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 

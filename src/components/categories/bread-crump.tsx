@@ -7,14 +7,11 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/UI/breadcrumb";
-// import { useRouter } from "next/navigation";
-// import { IoMdArrowBack } from "react-icons/io";
-// import Link from "next/link";
+
 import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 
 export function BreadCrumbs() {
-  // const router = useRouter();
   const path = usePathname();
   const pathName = path.split("/").filter((path) => path);
 
@@ -28,13 +25,11 @@ export function BreadCrumbs() {
           <BreadcrumbSeparator />
 
           {pathName.map((link, index) => {
-            // const href = `/${pathName.slice(0, index + 1).join("/")}`; // Correct href generation
             const linkName = link[0].toUpperCase() + link.slice(1, link.length); // Capitalize first letter of each link
 
             return (
               <Fragment key={index}>
                 <BreadcrumbItem>
-                  {/* <Link href={href}>{linkName}</Link> */}
                   <div>{linkName}</div>
                 </BreadcrumbItem>
                 {index < pathName.length - 1 && <BreadcrumbSeparator />}
@@ -43,13 +38,6 @@ export function BreadCrumbs() {
           })}
         </BreadcrumbList>
       </Breadcrumb>
-      {/* <div
-        className="flex flex-row items-center space-x-1 ml-4 cursor-pointer hover:border-blue-400 w-20 border-2 border-gray-400 px-3 py-1 rounded-md"
-        onClick={() => router.back()}
-      >
-        <IoMdArrowBack size={16} color="#6b7280" />
-        <h3 className="text-sm text-gray-500 ">back</h3>
-      </div> */}
       <div className="flex-grow border-t border-gray-200 mt-6" />
     </div>
   );

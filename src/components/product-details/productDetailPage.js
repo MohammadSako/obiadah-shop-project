@@ -10,7 +10,6 @@ import { ProductDetailsSkeleton } from "../UI/skeletons";
 
 function ProductDetailPage({ products }) {
   const { toast } = useToast();
-  // const [clotheType, setClotheType] = useState("");
   const { addItem, addFavorite, removeFavorite, favorite } = useItemStore();
   const t = useI18n();
   const locale = useCurrentLocale();

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-// import { FaRegCopyright } from "react-icons/fa6";
 import { Disclosure } from "@headlessui/react";
 import { NavMenu } from "../helpers/navbar helpers/navigation-menu";
 import Search from "../helpers/navbar helpers/search";
@@ -84,9 +83,6 @@ const SecondNav = ({ setOpen }) => {
               OBAIDAH <span className="font-bold text-[#db2777]">Shop</span>
             </h1>
           </Link>
-          {/* <div className="-mt-2 sm:invisible visible">
-            <FaRegCopyright size={10} />
-          </div> */}
         </div>
       </div>
     </div>

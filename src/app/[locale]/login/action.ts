@@ -12,15 +12,13 @@ export async function login(formData: {
 }) {
   const supabase = await createClient();
 
-  // Perform login
   const { error } = await supabase.auth.signInWithPassword({
     email: formData.email,
     password: formData.password,
   });
 
   if (error) {
-    throw new Error(error.message); // This will be caught in the client-side try-catch block
-  }
+    throw new Error(error.message); 
 
   revalidatePath("/dashboard", "layout");
   redirect(`/${formData.locale}/dashboard`);
@@ -31,9 +29,7 @@ export async function logout() {
 
   const { error } = await supabase.auth.signOut();
   if (error) {
-    throw new Error(error.message); // This will be caught in the client-side try-catch block
+    throw new Error(error.message); 
   }
   redirect("/login");
 }
-
-//https://supabase.com/docs/guides/auth/server-side/nextjs

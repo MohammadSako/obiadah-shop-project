@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useCurrentLocale, useI18n } from "@/locales/client";
 import Lottie from "lottie-react";
 import Loading from "@/s3.json";
-// Reusable icon styles
+
 const iconStyles = "mt-2 text-lg font-sans tracking-wide cursor-pointer";
 
 export function CardDetails({

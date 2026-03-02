@@ -23,26 +23,10 @@ export async function getProductByItemId(category) {
     });
     return { productByItemId };
   } catch (error) {
-    return { error: error.message || error }; // Handle errors
+    return { error: error.message || error };
   }
 }
-// export async function getProductByItemId(itemId) {
-//   try {
-//     const productByItemId = await prisma.item.findMany({
-//       where: {
-//         itemid: itemId,
-//       },
-//       include: {
-//         item_detail: true,
-//       },
-//     });
-//     return { productByItemId };
-//   } catch (error) {
-//     return { error: error.message || error }; // Handle errors
-//   }
-// }
 
-// Get Product name by Searching
 export async function searchInProducts(value) {
   try {
     const itemDetails = await prisma.itemDetail.findMany({
@@ -72,28 +56,12 @@ export async function searchInProducts(value) {
         price: true,
       },
     });
-    // const items = await prisma.item.findMany({
-    //   where: {
-    //     title: {
-    //       contains: value,
-    //       mode: "insensitive",
-    //     },
-    //   },
-    //   select: {
-    //     title: true,
-    //     id: true,
-    //   },
-    // });
-    // Combine the results and differentiate by source
+    
     const combinedResults = [
       ...itemDetails.map((detail) => ({
         ...detail,
         source: "ItemDetail",
       })),
-      // ...items.map((item) => ({
-      //   ...item,
-      //   source: "Item",
-      // })),
     ];
     return { combinedResults };
   } catch (error) {
@@ -102,7 +70,6 @@ export async function searchInProducts(value) {
   }
 }
 
-//Get Product by "searchInProducts" Value
 export async function searchedProducts(values) {
   if (!Array.isArray(values) || values.length === 0) {
     throw new Error("Please provide an array of search terms.");
@@ -122,26 +89,12 @@ export async function searchedProducts(values) {
         })),
       },
     });
-    // const items = await prisma.item.findMany({
-    //   where: {
-    //     OR: values.map((value) => ({
-    //       title: {
-    //         contains: value,
-    //         mode: "insensitive",
-    //       },
-    //     })),
-    //   },
-    // });
-    // Combine the results and differentiate by source
+
     const combinedResults = [
       ...itemDetails.map((detail) => ({
         ...detail,
         source: "ItemDetail",
       })),
-      // ...items.map((item) => ({
-      //   ...item,
-      //   source: "Item",
-      // })),
     ];
     return { combinedResults };
   } catch (error) {
@@ -150,7 +103,6 @@ export async function searchedProducts(values) {
   }
 }
 
-//Get Product by "searchedRelatedProducts" Value
 export async function searchedRelatedProducts(values) {
   if (!Array.isArray(values) || values.length === 0) {
     throw new Error("Please provide an array of search terms.");
@@ -179,20 +131,16 @@ export async function searchedRelatedProducts(values) {
   }
 }
 
-//Get By dashboardType
 export async function getBestSellers() {
   try {
     const bestSellers = await prisma.itemDetail.findMany({
       where: {
         dashboardType: "bestsellers",
       },
-      // select: {
-      //   url: true,
-      // },
     });
     return { bestSellers };
   } catch (error) {
-    return { error: error.message || error }; // Handle errors
+    return { error: error.message || error }; 
   }
 }
 export async function getNewArrivals() {
@@ -201,13 +149,10 @@ export async function getNewArrivals() {
       where: {
         dashboardType: "newarrival",
       },
-      // select: {
-      //   url: true,
-      // },
     });
     return { newArrivals };
   } catch (error) {
-    return { error: error.message || error }; // Handle errors
+    return { error: error.message || error }; 
   }
 }
 export async function getDiscounted() {
@@ -216,17 +161,13 @@ export async function getDiscounted() {
       where: {
         dashboardType: "discounted",
       },
-      // select: {
-      //   url: true,
-      // },
     });
     return { discounted };
   } catch (error) {
-    return { error: error.message || error }; // Handle errors
+    return { error: error.message || error }; 
   }
 }
 
-// Add Products
 export async function addProduct(productData) {
   try {
     const product = await prisma.itemDetail.create({
@@ -646,6 +587,3 @@ export async function updateOrderById(id) {
     };
   }
 }
-
-// https://www.prisma.io/docs/orm/prisma-client/queries/crud#create
-// https://supabase.com/docs/reference/javascript/update
