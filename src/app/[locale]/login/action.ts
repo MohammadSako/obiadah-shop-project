@@ -18,10 +18,11 @@ export async function login(formData: {
   });
 
   if (error) {
-    throw new Error(error.message); 
+    throw new Error(error.message);
 
-  revalidatePath("/dashboard", "layout");
-  redirect(`/${formData.locale}/dashboard`);
+    revalidatePath("/dashboard", "layout");
+    redirect(`/${formData.locale}/dashboard`);
+  }
 }
 
 export async function logout() {
@@ -29,7 +30,7 @@ export async function logout() {
 
   const { error } = await supabase.auth.signOut();
   if (error) {
-    throw new Error(error.message); 
+    throw new Error(error.message);
   }
   redirect("/login");
 }
