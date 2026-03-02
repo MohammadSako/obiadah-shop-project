@@ -20,7 +20,7 @@ export default {
   "common.form.country": "Country",
   "common.form.email": "Email",
   "common.form.phonenumber": "Phone",
-  "common.form.phone": "Phone: (+962) 777 935 735",
+  "common.form.phone": "Phone: (+962) 123 456 789",
   "common.form.password": "Password",
   "common.form.city": "City / Town",
   "common.form.bod": "Birthday",

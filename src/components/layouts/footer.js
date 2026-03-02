@@ -1,7 +1,7 @@
 "use client";
-import { useI18n } from "@/locales/client";
+
 import Link from "next/link";
-import React from "react";
+import { useI18n } from "@/locales/client";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaRegCopyright, FaWhatsapp } from "react-icons/fa6";
 
@@ -48,7 +48,7 @@ function Footer() {
             <FooterLink icon={<FaInstagram size={25} />} href="#" />
             <FooterLink
               icon={<FaWhatsapp size={25} />}
-              href="https://wa.me/962777935735"
+              href="https://wa.me/962123456789"
             />
           </div>
         </footer>
