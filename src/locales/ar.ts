@@ -20,7 +20,7 @@ export default {
   "common.form.country": "البلد",
   "common.form.phonenumber": "رقم الهاتف",
   "common.form.email": "البريد الإلكتروني",
-  "common.form.phone": "الهاتف: 962777935735+",
+  "common.form.phone": "الهاتف: 962123456789+",
   "common.form.password": "كلمة السر",
   "common.form.city": "المدينة / البلدة",
   "common.form.bod": "تاريخ الميلاد",
