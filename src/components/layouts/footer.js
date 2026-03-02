@@ -48,7 +48,7 @@ function Footer() {
             <FooterLink icon={<FaInstagram size={25} />} href="#" />
             <FooterLink
               icon={<FaWhatsapp size={25} />}
-              href="https://wa.me/962777935735"
+              href="https://wa.me/962123456789"
             />
           </div>
         </footer>
